@@ -98,6 +98,7 @@ def pregunta_04():
     
     # Importe GridSearchCV
     from sklearn.model_selection import GridSearchCV
+    import numpy as np
     
     # Cree una malla de búsqueda para el objecto GridSearchCV
     # con los siguientes parámetros de búesqueda:
@@ -110,7 +111,7 @@ def pregunta_04():
     #   * Use parada temprana
     
     param_grid = {
-        'hidden_layer_sizes': (1,9),  
+        'hidden_layer_sizes': np.arange(1, 9, 1),  
         'activation':'relu',  
         'learning_rate':'adaptive',  
         'momentum':[0.7,0.8,0.9],  
