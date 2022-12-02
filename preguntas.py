@@ -60,34 +60,35 @@ def pregunta_02():
     return x_train, x_test, y_train, y_test
 
 
-# def pregunta_03():
-#     """
-#     Construcción del pipeline
-#     """
+def pregunta_03():
+    """
+    Construcción del pipeline
+    """
+    
+    # Importe MLPRegressor
+    # Importe MinMaxScaler
+    # Importe Pipeline
+    from sklearn.neural_network import MLPRegressor
+    from sklearn.preprocessing import MinMaxScaler
+    from sklearn.pipeline import Pipeline
+    
+    # Cree un pipeline que contenga un estimador MinMaxScaler y un estimador
+    # MLPRegressor
+    pipeline = Pipeline(
+        steps=[
+            (
+                "minmaxscaler",
+                MinMaxScaler(),  
+            ),
+            (
+                "mlpregressor",
+                MLPRegressor(),  
+            ),
+        ],
+    )
 
-#     # Importe MLPRegressor
-#     # Importe MinMaxScaler
-#     # Importe Pipeline
-#     from ____ import ____
-
-#     # Cree un pipeline que contenga un estimador MinMaxScaler y un estimador
-#     # MLPRegressor
-#     pipeline = Pipeline(
-#         steps=[
-#             (
-#                 "minmaxscaler",
-#                 ____(___),  
-#             ),
-#             (
-#                 "mlpregressor",
-#                 ____(____),  
-#             ),
-#         ],
-#     )
-
-#     # Retorne el pipeline
-#     return pipeline
-
+    # Retorne el pipeline
+    return pipeline
 
 # def pregunta_04():
 #     """
