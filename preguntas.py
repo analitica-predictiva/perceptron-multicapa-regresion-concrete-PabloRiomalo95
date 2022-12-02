@@ -60,109 +60,109 @@ def pregunta_02():
     return x_train, x_test, y_train, y_test
 
 
-def pregunta_03():
-    """
-    Construcción del pipeline
-    """
+# def pregunta_03():
+#     """
+#     Construcción del pipeline
+#     """
 
-    # Importe MLPRegressor
-    # Importe MinMaxScaler
-    # Importe Pipeline
-    from ____ import ____
+#     # Importe MLPRegressor
+#     # Importe MinMaxScaler
+#     # Importe Pipeline
+#     from ____ import ____
 
-    # Cree un pipeline que contenga un estimador MinMaxScaler y un estimador
-    # MLPRegressor
-    pipeline = Pipeline(
-        steps=[
-            (
-                "minmaxscaler",
-                ____(___),  
-            ),
-            (
-                "mlpregressor",
-                ____(____),  
-            ),
-        ],
-    )
+#     # Cree un pipeline que contenga un estimador MinMaxScaler y un estimador
+#     # MLPRegressor
+#     pipeline = Pipeline(
+#         steps=[
+#             (
+#                 "minmaxscaler",
+#                 ____(___),  
+#             ),
+#             (
+#                 "mlpregressor",
+#                 ____(____),  
+#             ),
+#         ],
+#     )
 
-    # Retorne el pipeline
-    return pipeline
-
-
-def pregunta_04():
-    """
-    Creación de la malla de búsqueda
-    """
-
-    # Importe GridSearchCV
-    from sklearn.model_selection import GridSearchCV
-
-    # Cree una malla de búsqueda para el objecto GridSearchCV
-    # con los siguientes parámetros de búesqueda:
-    #   * De 1 a 8 neuronas en la capa oculta
-    #   * Activación con la función `relu`.
-    #   * Tasa de aprendizaje adaptativa
-    #   * Momentun con valores de 0.7, 0.8 y 0.9
-    #   * Tasa de aprendijzaje inicial de 0.01, 0.05, 0.1
-    #   * Un máximo de 5000 iteraciones
-    #   * Use parada temprana
-
-    param_grid = {
-        ___: ____,  
-        ___: ____,  
-        ___: ____,  
-        ___: ____,  
-        ___: ____,  
-        ___: ____,  
-        ___: ____,  
-    }
-
-    estimator = pregunta_03()
-
-    # Especifique un objeto GridSearchCV con el pipeline y la malla de búsqueda,
-    # y los siguientes parámetros adicionales:
-    #  * Validación cruzada con 5 particiones
-    #  * Compare modelos usando r^2
-    gridsearchcv = GridSearchCV(
-        estimator=estimator,
-        param_grid=param_grid,
-        ___ = ____  
-        ___ = ____  
-    )
-
-    return gridsearchcv
+#     # Retorne el pipeline
+#     return pipeline
 
 
-def pregunta_05():
-    """
-    Evalue el modelo obtenido.
-    """
+# def pregunta_04():
+#     """
+#     Creación de la malla de búsqueda
+#     """
 
-    # Importe mean_squared_error
-    from ____ import ____
+#     # Importe GridSearchCV
+#     from sklearn.model_selection import GridSearchCV
 
-    # Cargue las variables.
-    x_train, x_test, y_train, y_test = pregunta_02()
+#     # Cree una malla de búsqueda para el objecto GridSearchCV
+#     # con los siguientes parámetros de búesqueda:
+#     #   * De 1 a 8 neuronas en la capa oculta
+#     #   * Activación con la función `relu`.
+#     #   * Tasa de aprendizaje adaptativa
+#     #   * Momentun con valores de 0.7, 0.8 y 0.9
+#     #   * Tasa de aprendijzaje inicial de 0.01, 0.05, 0.1
+#     #   * Un máximo de 5000 iteraciones
+#     #   * Use parada temprana
 
-    # Obtenga el objeto GridSearchCV
-    estimator = pregunta_04()
+#     param_grid = {
+#         ___: ____,  
+#         ___: ____,  
+#         ___: ____,  
+#         ___: ____,  
+#         ___: ____,  
+#         ___: ____,  
+#         ___: ____,  
+#     }
 
-    # Entrene el estimador
-    estimator.fit(x_train, y_train)  #
+#     estimator = pregunta_03()
 
-    # Pronostique para las muestras de entrenamiento y validacion
-    y_trian_pred = ____.____(____)  
-    y_test_pred = ____.____(____)  
+#     # Especifique un objeto GridSearchCV con el pipeline y la malla de búsqueda,
+#     # y los siguientes parámetros adicionales:
+#     #  * Validación cruzada con 5 particiones
+#     #  * Compare modelos usando r^2
+#     gridsearchcv = GridSearchCV(
+#         estimator=estimator,
+#         param_grid=param_grid,
+#         ___ = ____  
+#         ___ = ____  
+#     )
 
-    # Calcule el error cuadrático medio de las muestras
-    mse_train = ____(  
-        ___,  
-        ___,  
-    )
-    mse_test = ____(  
-        ___,  
-        ___,  
-    )
+#     return gridsearchcv
 
-    # Retorne el mse de entrenamiento y prueba
-    return mse_train, mse_test
+
+# def pregunta_05():
+#     """
+#     Evalue el modelo obtenido.
+#     """
+
+#     # Importe mean_squared_error
+#     from ____ import ____
+
+#     # Cargue las variables.
+#     x_train, x_test, y_train, y_test = pregunta_02()
+
+#     # Obtenga el objeto GridSearchCV
+#     estimator = pregunta_04()
+
+#     # Entrene el estimador
+#     estimator.fit(x_train, y_train)  #
+
+#     # Pronostique para las muestras de entrenamiento y validacion
+#     y_trian_pred = ____.____(____)  
+#     y_test_pred = ____.____(____)  
+
+#     # Calcule el error cuadrático medio de las muestras
+#     mse_train = ____(  
+#         ___,  
+#         ___,  
+#     )
+#     mse_test = ____(  
+#         ___,  
+#         ___,  
+#     )
+
+#     # Retorne el mse de entrenamiento y prueba
+#     return mse_train, mse_test
