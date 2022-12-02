@@ -90,48 +90,49 @@ def pregunta_03():
     # Retorne el pipeline
     return pipeline
 
-# def pregunta_04():
-#     """
-#     Creación de la malla de búsqueda
-#     """
 
-#     # Importe GridSearchCV
-#     from sklearn.model_selection import GridSearchCV
+def pregunta_04():
+    """
+    Creación de la malla de búsqueda
+    """
+    
+    # Importe GridSearchCV
+    from sklearn.model_selection import GridSearchCV
+    
+    # Cree una malla de búsqueda para el objecto GridSearchCV
+    # con los siguientes parámetros de búesqueda:
+    #   * De 1 a 8 neuronas en la capa oculta
+    #   * Activación con la función `relu`.
+    #   * Tasa de aprendizaje adaptativa
+    #   * Momentun con valores de 0.7, 0.8 y 0.9
+    #   * Tasa de aprendijzaje inicial de 0.01, 0.05, 0.1
+    #   * Un máximo de 5000 iteraciones
+    #   * Use parada temprana
+    
+    param_grid = {
+        'hidden_layer_sizes': tuple(1,9),  
+        'activation':'relu',  
+        'learning_rate':'adaptive',  
+        'momentum':[0.7,0.8,0.9],  
+        'learning_rate_init':[0.01, 0.05, 0.1],  
+        'max_iter':5000,  
+        'early_stopping':True,
+    }
+    
+    estimator = pregunta_03()
+    
+    # Especifique un objeto GridSearchCV con el pipeline y la malla de búsqueda,
+    # y los siguientes parámetros adicionales:
+    #  * Validación cruzada con 5 particiones
+    #  * Compare modelos usando r^2
+    gridsearchcv = GridSearchCV (
+        estimator=estimator,
+        param_grid=param_grid,
+        cv = 5,
+        scoring = 'r^2',
+    )
 
-#     # Cree una malla de búsqueda para el objecto GridSearchCV
-#     # con los siguientes parámetros de búesqueda:
-#     #   * De 1 a 8 neuronas en la capa oculta
-#     #   * Activación con la función `relu`.
-#     #   * Tasa de aprendizaje adaptativa
-#     #   * Momentun con valores de 0.7, 0.8 y 0.9
-#     #   * Tasa de aprendijzaje inicial de 0.01, 0.05, 0.1
-#     #   * Un máximo de 5000 iteraciones
-#     #   * Use parada temprana
-
-#     param_grid = {
-#         ___: ____,  
-#         ___: ____,  
-#         ___: ____,  
-#         ___: ____,  
-#         ___: ____,  
-#         ___: ____,  
-#         ___: ____,  
-#     }
-
-#     estimator = pregunta_03()
-
-#     # Especifique un objeto GridSearchCV con el pipeline y la malla de búsqueda,
-#     # y los siguientes parámetros adicionales:
-#     #  * Validación cruzada con 5 particiones
-#     #  * Compare modelos usando r^2
-#     gridsearchcv = GridSearchCV(
-#         estimator=estimator,
-#         param_grid=param_grid,
-#         ___ = ____  
-#         ___ = ____  
-#     )
-
-#     return gridsearchcv
+    return gridsearchcv
 
 
 # def pregunta_05():
