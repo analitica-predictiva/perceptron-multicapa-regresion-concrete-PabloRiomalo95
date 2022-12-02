@@ -110,7 +110,7 @@ def pregunta_04():
     #   * Use parada temprana
     
     param_grid = {
-        'hidden_layer_sizes': range(1,9),  
+        'hidden_layer_sizes': (1,9),  
         'activation':'relu',  
         'learning_rate':'adaptive',  
         'momentum':[0.7,0.8,0.9],  
