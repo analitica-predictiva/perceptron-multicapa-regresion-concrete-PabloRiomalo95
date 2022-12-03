@@ -111,13 +111,13 @@ def pregunta_04():
     #   * Use parada temprana
     
     param_grid = {
-        'hidden_layer_sizes': list(np.arange(1, 9, 1)),  
-        'activation':['relu'],  
-        'learning_rate':['adaptive'],  
-        'momentum':[0.7,0.8,0.9],  
-        'learning_rate_init':[0.01, 0.05, 0.1],  
-        'max_iter':[5000],  
-        'early_stopping':[True],
+        'mlpregressor__hidden_layer_sizes': list(np.arange(1, 9, 1)),  
+        'mlpregressor__activation':['relu'],  
+        'mlpregressor__learning_rate':['adaptive'],  
+        'mlpregressor__momentum':[0.7,0.8,0.9],  
+        'mlpregressor__learning_rate_init':[0.01, 0.05, 0.1],  
+        'mlpregressor__max_iter':[5000],  
+        'mlpregressor__early_stopping':[True],
     }
     
     estimator = pregunta_03()
@@ -136,36 +136,39 @@ def pregunta_04():
     return gridsearchcv
 
 
-# def pregunta_05():
-#     """
-#     Evalue el modelo obtenido.
-#     """
+def pregunta_05():
+    """
+    Evalue el modelo obtenido.
+    """
+    
+    # Importe mean_squared_error
+    from sklearn.metrics import mean_squared_error
+    
+    # Cargue las variables.
+    x_train, x_test, y_train, y_test = pregunta_02()
+    
+    # Obtenga el objeto GridSearchCV
+    estimator = pregunta_04()
+    
+    ###estimator.get_params().keys()
+    
+    
+    # Entrene el estimador
+    estimator.fit(x_train, y_train)
+    
+    # Pronostique para las muestras de entrenamiento y validacion
+    y_train_pred = estimator.predict(y_train)  
+    y_test_pred = estimator.predict(y_test)  
+    
+    # Calcule el error cuadrático medio de las muestras
+    mse_train = mean_squared_error(  
+        y_train,  
+        y_train_pred,  
+    )
+    mse_test = mean_squared_error(
+        y_test,  
+        y_test_pred,  
+    )
 
-#     # Importe mean_squared_error
-#     from ____ import ____
-
-#     # Cargue las variables.
-#     x_train, x_test, y_train, y_test = pregunta_02()
-
-#     # Obtenga el objeto GridSearchCV
-#     estimator = pregunta_04()
-
-#     # Entrene el estimador
-#     estimator.fit(x_train, y_train)  #
-
-#     # Pronostique para las muestras de entrenamiento y validacion
-#     y_trian_pred = ____.____(____)  
-#     y_test_pred = ____.____(____)  
-
-#     # Calcule el error cuadrático medio de las muestras
-#     mse_train = ____(  
-#         ___,  
-#         ___,  
-#     )
-#     mse_test = ____(  
-#         ___,  
-#         ___,  
-#     )
-
-#     # Retorne el mse de entrenamiento y prueba
-#     return mse_train, mse_test
+    # Retorne el mse de entrenamiento y prueba
+    return mse_train, mse_test
