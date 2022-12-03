@@ -150,15 +150,12 @@ def pregunta_05():
     # Obtenga el objeto GridSearchCV
     estimator = pregunta_04()
     
-    ###estimator.get_params().keys()
-    
-    
     # Entrene el estimador
     estimator.fit(x_train, y_train)
     
     # Pronostique para las muestras de entrenamiento y validacion
-    y_train_pred = estimator.predict(y_train)  
-    y_test_pred = estimator.predict(y_test)  
+    y_train_pred = estimator.predict(x_train)
+    y_test_pred = estimator.predict(x_test)  
     
     # Calcule el error cuadrático medio de las muestras
     mse_train = mean_squared_error(  
